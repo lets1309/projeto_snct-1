@@ -1,0 +1,89 @@
+.h1{
+    color: rgb(11, 224, 39);
+}
+h12{
+    color: rgb(222, 132, 132);
+}
+
+.h3 {
+    color: rgb(57, 220, 24);
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    background-color: #27a659;
+
+}
+
+.formulario {
+    width: 300px;
+    height: 300px;
+    background-color: rgb(18, 212, 47);
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+}
+
+body {
+    background-color: "white"
+}
+.testeButton {
+    background-color: rgb(84, 202, 45);
+    color: rgb(22, 223, 82);
+    width: 75px;
+    text: center;
+    color: rgba(13, 220, 17, 0.819);
+    text-decoration: none;
+    padding: 14px 14px;
+    display: block;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.btn-cadastro {
+    text-decoration: none;
+    text-align: center;
+}
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    background-color: #666;
+
+}
+.formulario {
+    width: 300px;
+    height: 600px;
+    background-color: rgb(89, 236, 114);
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+}
+.btn-cadastro {
+    background-color: #27a659;
+    color: rgb(8, 6, 6);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.btn-cadastro:hover,
+.btn-cadastro:hover {
+    background-color: rgb(49, 205, 49);
+}
