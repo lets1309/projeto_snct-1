@@ -14,8 +14,8 @@
 </head>
 
 <body>
-    <?php
-    include 'requireORinclude\cabecalho.php';
+<?php
+    include '../layout/cabecalho.php';
     ?>
     <form action="" method="POST">
         <h1 class="h3">Cancelamento de Sala</h1>

@@ -10,18 +10,19 @@
     <!--Colocar esse style dentro do css e add o link de href aqui-->
 
     <style>
-        .h1{
+        .h1 {
             color: blue;
         }
-        h12{
+
+        h12 {
             color: red;
         }
     </style>
 </head>
 
 <body>
-<?php
-    include 'requireORinclude\cabecalho.php';
+    <?php
+    include '../layout/cabecalho.php';
     ?>
     <h1 class="h1">Reservas efetuadas</h1>
     <h2>Hoje:</h2>

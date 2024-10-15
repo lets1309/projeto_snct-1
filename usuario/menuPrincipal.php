@@ -8,16 +8,7 @@ if (!isset($_SESSION['login'])) {
     exit;
 }
 
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "projeto_snct";
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-//verifica a conexão
-if ($conn->connect_error) {
-    die("Conexão falhou: " . $conn->connect_error);
-}
+include '../bd/conexao.php';
 
 //pega a matrícula do usuário da sessão
 $matricula = $_SESSION['login'];  //usando 'matricula' em vez de 'login'
@@ -29,7 +20,7 @@ $result = $conn->query($sql);
 //verificação para saber se ele está logado
 if ($result->num_rows > 0) {
     $row = $result->fetch_assoc();
-    //pega o 'nome_completo' do usuário logado e exibe na tela(linha 56)
+    //pega o 'nome_completo' do usuário logado e exibe na tela***(linha 56)***
     $nome_completo = $row['nome_completo'];
 } else {
     echo "Erro: Dados do usuário não encontrados.";
@@ -49,9 +40,10 @@ $conn->close();
 
 <body>
     <?php
-    include 'requireORinclude\cabecalho.php';
+    include '../layout/cabecalho.php';
     ?>
     <h1>Bem-vindo, <?php echo $nome_completo; ?>!</h1>
+    <h2>Evento da Semana Nacional de Ciência e Tecnologia</h2>
 
 </body>
 

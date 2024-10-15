@@ -1,2 +1,0 @@
-# projeto_snct
- Apresentar

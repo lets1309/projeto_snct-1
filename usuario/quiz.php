@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biomas Brasileiros</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 80%;
+            margin: auto;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #2E8B57;
+            text-align: center;
+        }
+
+        .bioma {
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+
+        .bioma h2 {
+            color: #007BFF;
+        }
+
+        .quiz {
+            margin-top: 40px;
+        }
+
+        .quiz h2 {
+            color: #2E8B57;
+        }
+
+        input[type="radio"] {
+            margin-right: 10px;
+        }
+
+        input[type="submit"] {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+    <?php
+    include 'requireORinclude/cabecalho.php';
+    ?>
+    <div class="container">
+        <h1>Biomas Brasileiros</h1>
+
+        <div class="bioma">
+            <h2>Amazônia</h2>
+            <p>A Amazônia é o maior bioma brasileiro e a maior floresta tropical do mundo. Abriga uma vasta
+                biodiversidade, com mais de 30 milhões de espécies de plantas e animais, muitos dos quais ainda não
+                foram descobertos. É crucial para o equilíbrio climático do planeta e abriga comunidades indígenas que
+                dependem de seus recursos para viver.</p>
+        </div>
+
+        <div class="bioma">
+            <h2>Cerrado</h2>
+            <p>O Cerrado é um bioma de savana tropical, caracterizado por uma vegetação diversificada, com árvores de
+                tronco tortuoso e gramíneas. É o segundo maior bioma brasileiro e é conhecido por sua riqueza em fauna,
+                incluindo diversas espécies endêmicas. O Cerrado desempenha um papel vital na produção de água e na
+                conservação do solo, mas enfrenta sérias ameaças devido à expansão agrícola.</p>
+        </div>
+
+        <div class="bioma">
+            <h2>Caatinga</h2>
+            <p>O Caatinga é um bioma exclusivo do Brasil, adaptado a um clima semiárido. Sua vegetação é composta
+                principalmente por arbustos espinhosos e cactos. Apesar das condições adversas, a Caatinga possui uma
+                rica biodiversidade, com muitas espécies endêmicas. A preservação desse bioma é crucial para a
+                manutenção da cultura e dos modos de vida das comunidades que ali habitam.</p>
+        </div>
+
+        <div class="bioma">
+            <h2>Pantanal</h2>
+            <p>O Pantanal é a maior área alagada do mundo e um dos biomas mais ricos em biodiversidade. É conhecido por
+                sua fauna exuberante, que inclui jacarés, capivaras e diversas aves migratórias. Durante a estação das
+                chuvas, a região se transforma em um vasto lago, proporcionando um habitat único para muitas espécies. O
+                Pantanal é fundamental para a regulação hídrica e a conservação ambiental.</p>
+        </div>
+
+        <div class="bioma">
+            <h2>Campos Sulinos</h2>
+            <p>Os Campos Sulinos são caracterizados por extensas áreas de gramíneas, com algumas árvores esparsas. Este
+                bioma abriga uma variedade de fauna, incluindo espécies ameaçadas, como o cervo-do-pantanal. A região é
+                crucial para a preservação da biodiversidade e desempenha um papel importante na agricultura, mas
+                enfrenta pressão devido à urbanização e ao cultivo de monoculturas.</p>
+        </div>
+
+        <div class="bioma">
+            <h2>Mata Atlântica</h2>
+            <p>A Mata Atlântica é um bioma costeiro que se estende ao longo da costa brasileira, conhecido por sua rica
+                biodiversidade e endemismo. Este ecossistema é lar de inúmeras espécies de plantas e animais, muitos dos
+                quais estão ameaçados de extinção devido à urbanização e à exploração descontrolada. A conservação da
+                Mata Atlântica é vital para o equilíbrio ecológico e a proteção das águas.</p>
+        </div>
+
+        <div class="quiz">
+            <h2>Quiz sobre Biomas Brasileiros</h2>
+            <form action="resultado_quiz.php" method="POST">
+                <p>1. Qual é o maior bioma do Brasil?</p>
+                <input type="radio" name="q1" value="Amazônia"> Amazônia<br>
+                <input type="radio" name="q1" value="Cerrado"> Cerrado<br>
+                <input type="radio" name="q1" value="Caatinga"> Caatinga<br>
+
+                <p>2. Qual bioma é conhecido por ser uma área alagada?</p>
+                <input type="radio" name="q2" value="Pantanal"> Pantanal<br>
+                <input type="radio" name="q2" value="Mata Atlântica"> Mata Atlântica<br>
+                <input type="radio" name="q2" value="Campos Sulinos"> Campos Sulinos<br>
+
+                <p>3. Qual bioma é caracterizado por vegetação xerófila?</p>
+                <input type="radio" name="q3" value="Caatinga"> Caatinga<br>
+                <input type="radio" name="q3" value="Cerrado"> Cerrado<br>
+                <input type="radio" name="q3" value="Amazônia"> Amazônia<br>
+
+                <p>4. A Mata Atlântica é ameaçada por:</p>
+                <input type="radio" name="q4" value="Urbanização"> Urbanização<br>
+                <input type="radio" name="q4" value="Reflorestamento"> Reflorestamento<br>
+                <input type="radio" name="q4" value="Desmatamento"> Desmatamento<br>
+
+                <p>5. O que caracteriza os Campos Sulinos?</p>
+                <input type="radio" name="q5" value="Vegetação de floresta"> Vegetação de floresta<br>
+                <input type="radio" name="q5" value="Gramíneas"> Gramíneas<br>
+                <input type="radio" name="q5" value="Cactos"> Cactos<br>
+
+                <input type="submit" value="Enviar">
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>
