@@ -1,0 +1,407 @@
+/* cadastro adm*/
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    background-color: #666;
+
+}
+
+.formulario {
+    width: 300px;
+    height: 600px;
+    background-color: grey;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+}
+
+.btn-cadastro {
+    background-color: blue;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.btn-cadastro:hover,
+.btn-cadastro:hover {
+    background-color: green;
+}
+/*login adm */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    background-color: #666;
+
+}
+
+.formulario {
+    width: 300px;
+    height: 600px;
+    background-color: grey;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+}
+
+.btn-cadastro {
+    background-color: blue;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.btn-cadastro:hover,
+.btn-cadastro:hover {
+    background-color: green;
+}
+
+/* cadstrophp*/
+   .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            background-color: #666;
+
+        }
+
+        .formulario {
+            width: 300px;
+            height: 600px;
+            background-color: whitesmoke;
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+
+        }
+
+        .btn-cadastro {
+            background-color: blue;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .btn-cadastro:hover,
+        .btn-cadastro:hover {
+            background-color: green;
+        }
+        /*cancelar reserva*/
+        .h3 {
+            color: red;
+        }
+        /*login php*/
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            background-color: #ffff;
+
+        }
+        .p{
+            background-color: #ffff;
+        }
+        .formulario {
+            background-color: grey ;
+            width: 700px;
+            height: 500px;
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+
+        }
+
+        body {
+            background-color: #ffff
+        }
+
+        .testeButton {
+            background-color: blue;
+            color: whitesmoke;
+            width: 75px;
+            text: center;
+            color: white;
+            text-decoration: none;
+            padding: 14px 14px;
+            display: block;
+            border-radius: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+        .btn-cadastro {
+            text-decoration: none;
+            text-align: center;
+        }
+/*reservar sala*/
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            background-color: #ffff;
+
+        }
+        .p{
+            background-color: #ffff;
+        }
+        .formulario {
+            background-color: greenyellow;
+            width: 700px;
+            height: 500px;
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+
+        }
+        body {
+            background-color: #ffff
+        }
+        .testeButton {
+            background-color: blue;
+            color: whitesmoke;
+            width: 75px;
+            text: center;
+            color: white;
+            text-decoration: none;
+            padding: 14px 14px;
+            display: block;
+            border-radius: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+        }
+        .btn-cadastro {
+            text-decoration: none;
+            text-align: center;
+        }
+        /*reservas*/
+        .h1{
+            color: blue;
+        }
+        h12{
+            color: red;
+        }
+        /*quiz*/
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 80%;
+            margin: auto;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #2E8B57;
+            text-align: center;
+        }
+
+        .bioma {
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+
+        .bioma h2 {
+            color: #007BFF;
+        }
+
+        .quiz {
+            margin-top: 40px;
+        }
+
+        .quiz h2 {
+            color: #2E8B57;
+        }
+
+        input[type="radio"] {
+            margin-right: 10px;
+        }
+
+        input[type="submit"] {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        /* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #e8f5e9; /* Cor clara remetendo à natureza */
+    color: #2e7d32; /* Verde escuro para texto */
+    padding: 20px;
+    line-height: 1.6;
+}
+
+h1, h2, h3 {
+    color: #1b5e20; /* Verde mais forte para os títulos */
+}
+
+h1 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+}
+
+h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+/* Estilos para as seções */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.bioma-section {
+    margin-bottom: 40px;
+}
+
+.bioma-section:nth-child(even) {
+    background-color: #c8e6c9; /* Cor suave alternada */
+}
+
+.bioma-section:nth-child(odd) {
+    background-color: #a5d6a7; /* Outra variação de verde */
+}
+
+.bioma-section h2 {
+    text-align: left;
+    border-bottom: 2px solid #66bb6a;
+    padding-bottom: 10px;
+}
+
+/* Estilos de formulário */
+form {
+    background-color: #ffffff;
+    border: 1px solid #388e3c;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 30px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #9ccc65;
+    border-radius: 4px;
+}
+
+input[type="submit"] {
+    background-color: #43a047;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+input[type="submit"]:hover {
+    background-color: #2e7d32;
+}
+
+/* Estilos para botões */
+button {
+    background-color: #43a047;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #2e7d32;
+}
+
+/* Rodapé */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #388e3c;
+    color: white;
+    margin-top: 30px;
+    border-radius: 8px;
+}
+
+footer p {
+    margin: 0;
+}
+
+
+

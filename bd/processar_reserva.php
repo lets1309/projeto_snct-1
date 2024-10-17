@@ -1,25 +1,29 @@
 <?php
     // Conexão com o banco de dados
-    include 'conexao.php';
+    include 'conexao_adm.php';
     
-    if (!isset($conexao)) {
-        die("Erro: Conexão com o banco de dados não estabelecida.");
-    }
-    $matriculaPrincipal = $_POST['matriculaPrincipal'];
     $numero_sala = $_POST['selecionar_sala'];
+    $matricula = $_POST['matricula'];
+    $participantes = $_POST['numeroPessoas'];
     $data_inicio = '2024-10-15'; // Use um valor dinâmico, como $_POST['data_inicio'], se necessário
     $data_termino = '2024-10-15'; // Mesmo para a data de término
     $status = 'ativo';
 
+    $sql = "INSERT INTO reserva (numero_sala, matricula, data_inicio, data_termino, status) 
+            VALUES ('$numero_sala','$matricula', '$data_inicio', '$data_termino', '$status')";
 
-    $sql = "INSERT INTO reserva (matricula, numero_sala, data_inicio, data_termino, status) 
-            VALUES ('$matriculaPrincipal', '$numero_sala', '$data_inicio', '$data_termino', '$status')";
-
-    // Executar a consulta e verificar o resultado
     if (mysqli_query($conexao, $sql)) {
-        echo "Reserva efetuada com sucesso!";
+        // Exibe um alert e recarrega a página após clicar em OK
+        echo "<script>
+                alert('Reserva efetuada com sucesso!');
+                window.location.href = '../usuario/reservarSala.php'; // Substitua pelo URL da página que você quer recarregar
+              </script>";
     } else {
-        echo "Erro ao efetuar reserva: " . mysqli_error($conexao);
+        // Exibe um alert com o erro
+        echo "<script>
+                alert('Erro ao efetuar reserva: " . mysqli_error($conexao) . "');
+                window.location.href = 'url_da_pagina'; // Substitua pelo URL da página para recarregar em caso de erro
+              </script>";
     }
 
     // Fechar a conexão

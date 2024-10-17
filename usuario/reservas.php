@@ -5,18 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" type="text/css" href="styles.css">
-
-    <!--Colocar esse style dentro do css e add o link de href aqui-->
-
-    <style>
-        .h1 {
-            color: blue;
-        }
-
-        h12 {
-            color: red;
-        }
+    <link rel="stylesheet" type="text/css" href="../layout/styles.css">
     </style>
 </head>
 

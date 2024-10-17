@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reserva de Sala de Aula</title>
+    <link rel="stylesheet" type="text/css" href="../layout/styles.css">
     <script>
         // Função para gerar campos de matrícula dos integrantes
         function gerarCampos() {
@@ -46,15 +47,15 @@
         <label for="selecionar_sala">Escolha uma sala:</label>
         <select id="selecionar_sala" name="selecionar_sala" required> <!-- Seleção da sala -->
             <option value="">Selecione...</option> <!-- Opção padrão -->
-            <option value="sala_01">Sala 01</option>
-            <option value="sala_02">Sala 02</option>
+            <option value="1">Sala 01</option>
+            <option value="2">Sala 02</option>
         </select><br><br>
 
-        <label for="matriculaPrincipal">Matrícula do responsável:</label>
-        <input type="text" id="matriculaPrincipal" name="matriculaPrincipal" required><br><br>
+        <label for="matricula">Matrícula do responsável:</label>
+        <input type="text" name="matricula" required><br><br>
         <!-- Input para a matrícula do responsável -->
 
-        <label for="numeroPessoas">Número total de pessoas:</label>
+        <label for="participantes">Número total de pessoas:</label>
         <select id="numeroPessoas" name="numeroPessoas" onchange="gerarCampos()" required>
             <!-- Seleção do número de pessoas -->
             <option value="">Selecione</option> <!-- Opção padrão -->
