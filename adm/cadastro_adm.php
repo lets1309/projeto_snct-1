@@ -51,7 +51,7 @@
     <div class="container">
         <h1>Área de Cadastro</h1>
         <div>
-            <form action="bd/enviar_cadastro.php" method="POST" class="formulario">
+            <form action="../bd/enviar_cadastro_adm.php" method="POST" class="formulario">
                 <label for="nome_adm">Nome completo:</label><br>
                 <input type="text" name="nome_adm" required placeholder="Digite seu nome completo."><br>
                 
@@ -66,7 +66,8 @@
                 
 
                 <button type="submit">Cadastrar</button>
-                <button>Voltar ao início</button>
+
+                <a href="login_adm.php"><button type="button">Voltar ao Início</button></a>
             </form>
         </div>
     </div>

@@ -99,6 +99,8 @@
 
                 <button type="submit">Login</button><br>
                 <a href="usuario/cadastro.php">Não tem uma conta? Cadastre-se!</a>
+                <a href="adm/login_adm.php">login ADM</a>
+                
             </form>
         </div>
     </div>

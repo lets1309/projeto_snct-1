@@ -1,18 +1,20 @@
 <?php
     // Conexão com o banco de dados
-    include 'conexao_adm.php';
+    include 'config.php';
     
     $numero_sala = $_POST['selecionar_sala'];
     $matricula = $_POST['matricula'];
     $participantes = $_POST['numeroPessoas'];
-    $data_inicio = '2024-10-15'; // Use um valor dinâmico, como $_POST['data_inicio'], se necessário
-    $data_termino = '2024-10-15'; // Mesmo para a data de término
-    $status = 'ativo';
+    
+    // Obter as datas do formulário
+    $data_inicio = $_POST['data_inicio']; // Data de início enviada pelo formulário
+    $data_termino = $_POST['data_termino']; // Data de término enviada pelo formulário
 
-    $sql = "INSERT INTO reserva (numero_sala, matricula, data_inicio, data_termino, status) 
-            VALUES ('$numero_sala','$matricula', '$data_inicio', '$data_termino', '$status')";
+    // Corrigindo a consulta SQL
+    $sql = "INSERT INTO reserva (numero_sala, matricula, data_inicio, data_termino) 
+            VALUES ('$numero_sala', '$matricula', '$data_inicio', '$data_termino')";
 
-    if (mysqli_query($conexao, $sql)) {
+    if (mysqli_query($conn, $sql)) {
         // Exibe um alert e recarrega a página após clicar em OK
         echo "<script>
                 alert('Reserva efetuada com sucesso!');
@@ -21,11 +23,11 @@
     } else {
         // Exibe um alert com o erro
         echo "<script>
-                alert('Erro ao efetuar reserva: " . mysqli_error($conexao) . "');
+                alert('Erro ao efetuar reserva: " . mysqli_error($conn) . "');
                 window.location.href = 'url_da_pagina'; // Substitua pelo URL da página para recarregar em caso de erro
               </script>";
     }
 
     // Fechar a conexão
-    mysqli_close($conexao);
+    mysqli_close($conn);
 ?>

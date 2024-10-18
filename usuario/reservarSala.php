@@ -2,74 +2,76 @@
 <html lang="pt-BR">
 
 <head>
+    <?php
+    include '../layout/cabecalho.php';
+    ?>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reserva de Sala de Aula</title>
-    <link rel="stylesheet" type="text/css" href="../layout/styles.css">
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        h1 { color: #333; }
+        form { max-width: 600px; margin: auto; }
+        label, input, select, button { display: block; width: 100%; margin-bottom: 10px; }
+        button { padding: 10px; background-color: #007BFF; color: white; border: none; cursor: pointer; }
+        button:hover { background-color: #0056b3; }
+    </style>
     <script>
-        // Função para gerar campos de matrícula dos integrantes
         function gerarCampos() {
-            const numeroPessoas = document.getElementById('numeroPessoas').value; // Pega o número de pessoas selecionado
-            const camposIntegrantes = document.getElementById('camposIntegrantes'); // Seleciona o div onde os campos serão gerados
-            camposIntegrantes.innerHTML = ''; // Limpa os campos anteriores
-
-            // Verifica se o número de pessoas está entre 3 e 6
+            const numeroPessoas = document.getElementById('numeroPessoas').value;
+            const camposIntegrantes = document.getElementById('camposIntegrantes');
+            camposIntegrantes.innerHTML = '';
             if (numeroPessoas >= 3 && numeroPessoas <= 6) {
-                // Gera os campos para os integrantes
-                for (let i = 2; i <= numeroPessoas; i++) { 
+                for (let i = 2; i <= numeroPessoas; i++) {
                     const label = document.createElement('label');
                     label.textContent = `Matrícula do integrante ${i}: `;
-
-                    const input = document.createElement('input'); 
+                    const input = document.createElement('input');
                     input.type = 'text';
-                    input.name = `matricula_integrante_${i}`; 
-                    input.placeholder = `Digite a matrícula do integrante ${i}`; 
-                    input.required = true; 
-
-                    
+                    input.name = `matricula_integrante_${i}`;
+                    input.placeholder = `Digite a matrícula do integrante ${i}`;
+                    input.required = true;
                     camposIntegrantes.appendChild(label);
                     camposIntegrantes.appendChild(input);
-                    camposIntegrantes.appendChild(document.createElement('br')); // Adiciona uma quebra de linha
+                    camposIntegrantes.appendChild(document.createElement('br'));
                 }
             } else {
-                alert('O número de pessoas deve ser entre 3 e 6.'); // Alerta se o número de pessoas não for válido
+                alert('O número de pessoas deve ser entre 3 e 6.');
             }
         }
     </script>
 </head>
 
 <body>
-    <?php
-    include '../layout/cabecalho.php';
-    ?>
-    <h1>Reserva da Sala de Estudos</h1> <!-- Título da página -->
-    <form action="../bd/processar_reserva.php" method="POST"> <!-- Início do formulário -->
+    <h1>Reserva da Sala de Estudos</h1>
+    <form action="../bd/processar_reserva.php" method="POST">
         <label for="selecionar_sala">Escolha uma sala:</label>
-        <select id="selecionar_sala" name="selecionar_sala" required> <!-- Seleção da sala -->
-            <option value="">Selecione...</option> <!-- Opção padrão -->
+        <select id="selecionar_sala" name="selecionar_sala" required>
+            <option value="">Selecione...</option>
             <option value="1">Sala 01</option>
             <option value="2">Sala 02</option>
-        </select><br><br>
+        </select>
 
         <label for="matricula">Matrícula do responsável:</label>
-        <input type="text" name="matricula" required><br><br>
-        <!-- Input para a matrícula do responsável -->
+        <input type="text" name="matricula" required>
 
         <label for="participantes">Número total de pessoas:</label>
         <select id="numeroPessoas" name="numeroPessoas" onchange="gerarCampos()" required>
-            <!-- Seleção do número de pessoas -->
-            <option value="">Selecione</option> <!-- Opção padrão -->
+            <option value="">Selecione</option>
             <option value="3">3</option>
             <option value="4">4</option>
             <option value="5">5</option>
             <option value="6">6</option>
-        </select><br><br>
+        </select>
 
-        <div id="camposIntegrantes">
-            <!-- Campos para matrículas dos integrantes serão gerados aqui -->
-        </div>
+        <div id="camposIntegrantes"></div>
 
-        <button type="submit">Reservar</button> 
+        <label for="data_inicio">Data de Início:</label>
+        <input type="date" name="data_inicio" required>
+
+        <label for="data_termino">Data de Término:</label>
+        <input type="date" name="data_termino" required>
+
+        <button type="submit">Reservar</button>
     </form>
 </body>
 

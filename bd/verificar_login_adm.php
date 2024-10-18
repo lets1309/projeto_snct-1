@@ -11,7 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if (mysqli_num_rows($result) == 1) {
         $_SESSION['email_adm'] = $email_adm;
-        header('Location: dashboard.php');
+        header('Location: ../adm/dashboard.php');
     } else {
         echo "Login inválido!";
     }
