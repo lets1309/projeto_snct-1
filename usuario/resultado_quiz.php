@@ -15,6 +15,8 @@ foreach ($respostasCorretas as $pergunta => $respostaCorreta) {
     }
 }
 
+include '../layout/cabecalho.php';
+
 echo "<h1>Resultado do Quiz</h1>";
 echo "<p>Você acertou <strong>$pontuacao</strong> de <strong>" . count($respostasCorretas) . "</strong> perguntas.</p>";
 

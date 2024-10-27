@@ -13,7 +13,7 @@
             padding: 0;
         }
 
-        .container {
+        .container-biomas {
             width: 80%;
             margin: auto;
             padding: 20px;
@@ -24,7 +24,7 @@
             text-align: center;
         }
 
-        .bioma {
+        .bioma-individual {
             background-color: #ffffff;
             border-radius: 8px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -32,15 +32,15 @@
             margin-bottom: 20px;
         }
 
-        .bioma h2 {
+        .bioma-individual h2 {
             color: #007BFF;
         }
 
-        .quiz {
+        .quiz-biomas {
             margin-top: 40px;
         }
 
-        .quiz h2 {
+        .quiz-biomas h2 {
             color: #2E8B57;
         }
 
@@ -65,12 +65,12 @@
 
 <body>
     <?php
-    include 'requireORinclude/cabecalho.php';
+    include '../layout/cabecalho.php';
     ?>
-    <div class="container">
+    <div class="container-biomas">
         <h1>Biomas Brasileiros</h1>
 
-        <div class="bioma">
+        <div class="bioma-individual">
             <h2>Amazônia</h2>
             <p>A Amazônia é o maior bioma brasileiro e a maior floresta tropical do mundo. Abriga uma vasta
                 biodiversidade, com mais de 30 milhões de espécies de plantas e animais, muitos dos quais ainda não
@@ -78,7 +78,7 @@
                 dependem de seus recursos para viver.</p>
         </div>
 
-        <div class="bioma">
+        <div class="bioma-individual">
             <h2>Cerrado</h2>
             <p>O Cerrado é um bioma de savana tropical, caracterizado por uma vegetação diversificada, com árvores de
                 tronco tortuoso e gramíneas. É o segundo maior bioma brasileiro e é conhecido por sua riqueza em fauna,
@@ -86,7 +86,7 @@
                 conservação do solo, mas enfrenta sérias ameaças devido à expansão agrícola.</p>
         </div>
 
-        <div class="bioma">
+        <div class="bioma-individual">
             <h2>Caatinga</h2>
             <p>O Caatinga é um bioma exclusivo do Brasil, adaptado a um clima semiárido. Sua vegetação é composta
                 principalmente por arbustos espinhosos e cactos. Apesar das condições adversas, a Caatinga possui uma
@@ -94,7 +94,7 @@
                 manutenção da cultura e dos modos de vida das comunidades que ali habitam.</p>
         </div>
 
-        <div class="bioma">
+        <div class="bioma-individual">
             <h2>Pantanal</h2>
             <p>O Pantanal é a maior área alagada do mundo e um dos biomas mais ricos em biodiversidade. É conhecido por
                 sua fauna exuberante, que inclui jacarés, capivaras e diversas aves migratórias. Durante a estação das
@@ -102,7 +102,7 @@
                 Pantanal é fundamental para a regulação hídrica e a conservação ambiental.</p>
         </div>
 
-        <div class="bioma">
+        <div class="bioma-individual">
             <h2>Campos Sulinos</h2>
             <p>Os Campos Sulinos são caracterizados por extensas áreas de gramíneas, com algumas árvores esparsas. Este
                 bioma abriga uma variedade de fauna, incluindo espécies ameaçadas, como o cervo-do-pantanal. A região é
@@ -110,7 +110,7 @@
                 enfrenta pressão devido à urbanização e ao cultivo de monoculturas.</p>
         </div>
 
-        <div class="bioma">
+        <div class="bioma-individual">
             <h2>Mata Atlântica</h2>
             <p>A Mata Atlântica é um bioma costeiro que se estende ao longo da costa brasileira, conhecido por sua rica
                 biodiversidade e endemismo. Este ecossistema é lar de inúmeras espécies de plantas e animais, muitos dos
@@ -118,7 +118,7 @@
                 Mata Atlântica é vital para o equilíbrio ecológico e a proteção das águas.</p>
         </div>
 
-        <div class="quiz">
+        <div class="quiz-biomas">
             <h2>Quiz sobre Biomas Brasileiros</h2>
             <form action="resultado_quiz.php" method="POST">
                 <p>1. Qual é o maior bioma do Brasil?</p>

@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -64,7 +66,7 @@
             border: none; /* Sem borda */
             border-radius: 5px; /* Bordas arredondadas */
             cursor: pointer; /* Mão ao passar o mouse */
-            width: 100%; /* Ocupa toda a largura */
+            width: 100%;    
         }
 
         button:hover {
@@ -92,18 +94,19 @@
         <div class="divLogin">
             <form action="bd/verificar_login.php" method="POST" class="formulario">
                 <label for="login">Login:</label><br>
-                <input type="text" name="matricula" required placeholder="Digite seu login."><br>
+                <input type="text" name="matricula" required placeholder="Digite seu login." autocomplete="off"><br>
 
                 <label for="senha">Senha:</label><br>
-                <input type="password" name="senha" required placeholder="Digite sua senha."><br><br>
+                <input type="password" name="senha" required placeholder="Digite sua senha."autocomplete="off"><br><br>
 
                 <button type="submit">Login</button><br>
-                <a href="usuario/cadastro.php">Não tem uma conta? Cadastre-se!</a>
-                <a href="adm/login_adm.php">login ADM</a>
-                
+                <a href="usuario/cadastro.php">Não tem uma conta? Cadastre-se!</a>                
             </form>
         </div>
     </div>
+    <?php
+    include '../projeto_snct/layout/footer.php';
+    ?>
 </body>
 
 </html>

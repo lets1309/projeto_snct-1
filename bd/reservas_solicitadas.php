@@ -30,21 +30,23 @@ include '../layout/cabecalho_adm.php';
           <tr>
           <th>ID Reserva</th>
           <th>Matrícula</th>
-          <th>Data Início</th>
-          <th>Data Término</th>
+          <th>Data de Reserva</th>
+          <th>Horário de Início</th>
+          <th>Número de Pessoas</th>
           <th>Status</th>
           <th>Número da Sala</th>
           <th>Ação</th>
       </tr>
       <?php
-      $query = "SELECT * FROM reserva";
+      $query = "SELECT * FROM reserva ORDER BY ID_reserva desc";
       $result = mysqli_query($conn, $query);
       while ($row = mysqli_fetch_assoc($result)) {
           echo "<tr>";
           echo "<td>{$row['ID_reserva']}</td>";
           echo "<td>{$row['matricula']}</td>";
-          echo "<td>{$row['data_inicio']}</td>";
-          echo "<td>{$row['data_termino']}</td>";
+          echo "<td>{$row['data_reserva']}</td>";
+          echo "<td>{$row['horario_inicio']}</td>";
+          echo "<td>{$row['numero_pessoas']}</td>";
           echo "<td>{$row['status']}</td>";
           echo "<td>{$row['numero_sala']}</td>";
           echo "<td>

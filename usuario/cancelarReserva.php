@@ -16,30 +16,15 @@ if (!$conn) {
 
 <!DOCTYPE html>
 <html lang="pt-BR">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cancelar Reserva</title>
-    <style>
-        body { font-family: Arial, sans-serif; margin: 20px; }
-        table { width: 100%; border-collapse: collapse; margin-bottom: 20px; }
-        table, th, td { border: 1px solid black; }
-        th, td { padding: 10px; text-align: center; }
-        button { padding: 10px; background-color: #FF5733; color: white; border: none; cursor: pointer; }
-        button:hover { background-color: #C70039; }
-    </style>
-</head>
+<?php include '../layout/head.php'?>
 
 <body>
-    <?php
-    include '../layout/cabecalho.php';
-    ?>
+<?php include '../layout/cabecalho.php'?>
     <h1>Cancelamento de Reserva</h1>
     <h2>Reservas Ativas</h2>
     <?php
     // Seleciona as reservas ativas (em aberto)
-    $query = "SELECT * FROM reserva WHERE status = 'Em aberto'";
+    $query = "SELECT * FROM reserva WHERE status = ''";
     $result = mysqli_query($conn, $query);
 
     // Exibe as reservas ativas em uma tabela
