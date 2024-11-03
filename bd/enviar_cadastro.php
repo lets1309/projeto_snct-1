@@ -1,39 +1,64 @@
 <?php
+include 'conexao.php';
+include_once("conexao001.php");
 
-    include 'conexao.php';
+// Receber os dados do formulário
+$matricula = $_POST['matricula'];
+$nome_completo = $_POST['nome_completo'];
 
-    // Receber os dados do formulário
-    $matricula = $_POST['matricula'];
-    $nome_completo = $_POST['nome_completo'];
-    $CPF = $_POST['CPF'];
-    $endereco = $_POST['endereco'];
-    $bairro = $_POST['bairro'];
-    $numero = $_POST['numero'];
-    $senha = $_POST['senha'];
+$imagemNome = $_FILES["imagem"]["name"];
+$imagemTmpNome = $_FILES["imagem"]["tmp_name"];
 
+$CPF = $_POST['cpf'];
+$endereco = $_POST['endereco'];
+$bairro = $_POST['bairro'];
+$numero = $_POST['numero'];
+$senha = $_POST['senha'];
+
+// Caminho para a pasta de upload
+$pastaDestino = "../uploads/";
+
+
+// Verifique se a pasta de destino existe, caso contrário, crie-a
+if (!is_dir($pastaDestino)) {
+    mkdir($pastaDestino, 0755, true);
+}
+
+// Nome único para a imagem para evitar conflitos
+$imagemNovoNome = uniqid() . '-' . basename($imagemNome);
+$caminhoImagem = $pastaDestino . $imagemNovoNome;
+
+// Tente mover a imagem para a pasta de destino
+if (move_uploaded_file($imagemTmpNome, $caminhoImagem)) {
     // Verificar se a matrícula já existe no banco de dados
     $sql_check = "SELECT * FROM usuarios WHERE matricula = '$matricula'";
     $result_check = $conn->query($sql_check);
 
     if ($result_check->num_rows > 0) {
-        // Se a matrícula já existir, exibe um alert em JavaScript
         echo "<script>
                 alert('Erro: A matrícula $matricula já está cadastrada.');
                 window.location.href = '../usuario/cadastro.php';
-            </script>";
+              </script>";
     } else {
-        // Inserir no banco de dados se a matrícula não existir
-        $sql = "INSERT INTO usuarios (matricula, nome_completo, CPF, endereco, bairro, numero, senha) 
-                VALUES ('$matricula', '$nome_completo', '$CPF', '$endereco', '$bairro', '$numero', '$senha')";
+        // Inserir no banco de dados com o caminho da imagem
+        $sql = "INSERT INTO usuarios (matricula, nome_completo, CPF, endereco, bairro, numero, senha, foto_perfil) 
+                VALUES ('$matricula', '$nome_completo', '$CPF', '$endereco', '$bairro', '$numero', '$senha', '$caminhoImagem')";
 
         if ($conn->query($sql) === TRUE) {
-            // Redirecionar para a página de login
-            header("Location: ../index.php");
+            echo "<script>
+                    alert('Cadastro realizado com sucesso!');
+                    window.location.href = '../index.php';
+                  </script>";
         } else {
-            // Exibir erro se a inserção falhar
             echo "Erro ao cadastrar o usuário: " . $conn->error;
         }
     }
+} else {
+    echo "<script>
+            alert('Erro ao fazer upload da imagem.');
+            window.location.href = '../usuario/cadastro.php';
+          </script>";
+}
 
-    $conn->close();
+$conn->close();
 ?>

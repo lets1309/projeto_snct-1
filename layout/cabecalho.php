@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #32CD32;">
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #65b307;">
     <div class="container-fluid">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -8,6 +8,9 @@
             <ul class="navbar-nav me-auto mb-2 mb-lg-0 nav-ul">
                 <li class="nav-item me-3">
                     <a class="nav-link" href="../usuario/menuPrincipal.php">Início</a>
+                </li>   
+                <li class="nav-item me-3">
+                    <a class="nav-link" href="../usuario/quiz.php">Quiz</a>
                 </li>
                 <li class="nav-item me-3">
                     <a class="nav-link" href="../usuario/reservarSala.php">Solicitar Reserva</a>
@@ -30,6 +33,7 @@
             display: flex;
             justify-content: flex-end;
             border-radius: 20px;
+            padding: 5px;
         }
 
         .nav-ul {
@@ -37,7 +41,7 @@
             padding: 0;
             margin: 0;
             font-size: 20px;
-            font-family: 'Times New Roman', Times, serif;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
         }
 
         .nav-ul li {
@@ -47,7 +51,7 @@
         .nav-ul li a {
             color: white;
             text-decoration: none;
-            padding: 14px;
+            padding: 10px 15px;
             transition: background-color 0.3s ease;
             border-radius: 20px;
         }
@@ -58,16 +62,20 @@
         }
 
         @media (max-width: 768px) {
-            #navbarNav {
+            .navbar-collapse {
                 flex-direction: column;
-                /* Muda para coluna em telas menores */
+                align-items: flex-start;
+            }
+
+            .nav-ul {
+                width: 100%;
             }
 
             .nav-ul li {
                 margin-right: 0;
-                /* Remove a margem à direita */
                 margin-bottom: 10px;
-                /* Adiciona espaçamento inferior */
+                width: 100%;
+                text-align: left;
             }
         }
     </style>

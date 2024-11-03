@@ -12,7 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Verifica se a conexão foi estabelecida corretamente
     if ($conn) {
         $query = "UPDATE adm SET nome_adm='$nome', email_adm='$email', senha_adm='$senha' WHERE email_adm='{$_SESSION['email_adm']}'";
-        
+
         if (mysqli_query($conn, $query)) {
             // Atualiza o email na sessão caso ele tenha sido alterado
             $_SESSION['email_adm'] = $email;
@@ -31,31 +31,32 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alterar Dados</title>
-</head>
-<body>
 <?php
-include '../layout/cabecalho_adm.php';
+include '../layout/head.php';
 ?>
-<h3>alterar dados ADM<h3>
-<?php if (!empty($mensagem)): ?>
-    <h2><?php echo $mensagem; ?></h2>
-<?php endif; ?>
 
-<form method="post" action="">
-    Nome: <input type="text" name="nome_adm" required><br>
-    Email: <input type="email" name="email_adm" required><br>
-    Senha: <input type="password" name="senha_adm" required><br>
-    <button type="submit">Salvar</button>
-</form>
+<body>
+    <?php
+    include '../layout/cabecalho_adm.php';
+    ?>
+    <h3>Alterar Dados ADM</h3>
+    <?php if (!empty($mensagem)): ?>
+        <h2><?php echo $mensagem; ?></h2>
+    <?php endif; ?>
 
-<!-- Botão para voltar ao início -->
-<p>
-    <a href="dashboard.php"><button type="button">Voltar ao Início</button></a>
-</p>
+    <form method="post" action="">
+        <p>Nome: <input type="text" name="nome_adm" required></p>
+        <p>Email: <input type="email" name="email_adm" required></p>
+        <p>Senha: <input type="password" name="senha_adm" required></p>
+        <button type="submit">Salvar</button>
+    </form>
+    <p>
+        <a href="dashboard.php"><button type="button">Voltar ao Início</button></a>
+    </p>
 
+    <?php
+    include '../layout/footer.php';
+    ?>
 </body>
+
 </html>

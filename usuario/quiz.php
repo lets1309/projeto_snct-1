@@ -1,69 +1,9 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Biomas Brasileiros</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f0f8ff;
-            margin: 0;
-            padding: 0;
-        }
-
-        .container-biomas {
-            width: 80%;
-            margin: auto;
-            padding: 20px;
-        }
-
-        h1 {
-            color: #2E8B57;
-            text-align: center;
-        }
-
-        .bioma-individual {
-            background-color: #ffffff;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            padding: 15px;
-            margin-bottom: 20px;
-        }
-
-        .bioma-individual h2 {
-            color: #007BFF;
-        }
-
-        .quiz-biomas {
-            margin-top: 40px;
-        }
-
-        .quiz-biomas h2 {
-            color: #2E8B57;
-        }
-
-        input[type="radio"] {
-            margin-right: 10px;
-        }
-
-        input[type="submit"] {
-            background-color: #007BFF;
-            color: white;
-            border: none;
-            padding: 10px 15px;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        input[type="submit"]:hover {
-            background-color: #0056b3;
-        }
-    </style>
-</head>
-
-<body>
+<?php
+    include '../layout/head.php';
+    ?>
+<body class="body_quiz">
     <?php
     include '../layout/cabecalho.php';
     ?>
@@ -71,7 +11,7 @@
         <h1>Biomas Brasileiros</h1>
 
         <div class="bioma-individual">
-            <h2>Amazônia</h2>
+            <h2 class="h2_quiz">Amazônia</h2>
             <p>A Amazônia é o maior bioma brasileiro e a maior floresta tropical do mundo. Abriga uma vasta
                 biodiversidade, com mais de 30 milhões de espécies de plantas e animais, muitos dos quais ainda não
                 foram descobertos. É crucial para o equilíbrio climático do planeta e abriga comunidades indígenas que
@@ -79,7 +19,7 @@
         </div>
 
         <div class="bioma-individual">
-            <h2>Cerrado</h2>
+            <h2 class="h2_quiz">Cerrado</h2>
             <p>O Cerrado é um bioma de savana tropical, caracterizado por uma vegetação diversificada, com árvores de
                 tronco tortuoso e gramíneas. É o segundo maior bioma brasileiro e é conhecido por sua riqueza em fauna,
                 incluindo diversas espécies endêmicas. O Cerrado desempenha um papel vital na produção de água e na
@@ -87,7 +27,7 @@
         </div>
 
         <div class="bioma-individual">
-            <h2>Caatinga</h2>
+            <h2 class="h2_quiz">Caatinga</h2>
             <p>O Caatinga é um bioma exclusivo do Brasil, adaptado a um clima semiárido. Sua vegetação é composta
                 principalmente por arbustos espinhosos e cactos. Apesar das condições adversas, a Caatinga possui uma
                 rica biodiversidade, com muitas espécies endêmicas. A preservação desse bioma é crucial para a
@@ -95,7 +35,7 @@
         </div>
 
         <div class="bioma-individual">
-            <h2>Pantanal</h2>
+            <h2 class="h2_quiz">Pantanal</h2>
             <p>O Pantanal é a maior área alagada do mundo e um dos biomas mais ricos em biodiversidade. É conhecido por
                 sua fauna exuberante, que inclui jacarés, capivaras e diversas aves migratórias. Durante a estação das
                 chuvas, a região se transforma em um vasto lago, proporcionando um habitat único para muitas espécies. O
@@ -103,7 +43,7 @@
         </div>
 
         <div class="bioma-individual">
-            <h2>Campos Sulinos</h2>
+            <h2 class="h2_quiz">Campos Sulinos</h2>
             <p>Os Campos Sulinos são caracterizados por extensas áreas de gramíneas, com algumas árvores esparsas. Este
                 bioma abriga uma variedade de fauna, incluindo espécies ameaçadas, como o cervo-do-pantanal. A região é
                 crucial para a preservação da biodiversidade e desempenha um papel importante na agricultura, mas
@@ -111,7 +51,7 @@
         </div>
 
         <div class="bioma-individual">
-            <h2>Mata Atlântica</h2>
+            <h2 class="h2_quiz">Mata Atlântica</h2>
             <p>A Mata Atlântica é um bioma costeiro que se estende ao longo da costa brasileira, conhecido por sua rica
                 biodiversidade e endemismo. Este ecossistema é lar de inúmeras espécies de plantas e animais, muitos dos
                 quais estão ameaçados de extinção devido à urbanização e à exploração descontrolada. A conservação da

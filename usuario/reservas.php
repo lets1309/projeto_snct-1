@@ -4,7 +4,7 @@
     include '../layout/head.php';
 ?>
 
-<body class="body_reservas">
+<body>
 <?php include '../layout/cabecalho.php'; ?>
 <br><br>
     <div class="container-principal">
@@ -26,7 +26,7 @@
                 <th>Matrícula</th>
                 <th>Data de Reserva</th>
                 <th>Horário de Início</th>
-                <th>Status</th>
+
             </tr>
             <?php
             // Consulta para exibir as reservas em aberto
@@ -40,7 +40,6 @@
                     echo "<td>{$row['matricula']}</td>";
                     echo "<td>{$row['data_reserva']}</td>";
                     echo "<td>{$row['horario_inicio']}</td>";
-                    echo "<td>{$row['status']}</td>";
                     echo "</tr>";
                 }
             } else {

@@ -169,7 +169,7 @@
     </ul>
 
     <div class="link-container">
-      <a href="http://localhost/dud/projeto_snct/projeto_snct/index.php">Acessar Study Space</a>
+      <a href="../index.php">Acessar Study Space</a>
     </div>
   </div>
 

@@ -25,21 +25,17 @@ $conn->close();
 
 <!DOCTYPE html>
 <html lang="pt-BR">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alteração de Dados do Usuário</title>
-    <link rel="stylesheet" type="text/css" href="../layout/styles.css">
-</head>
+<?php
+include '../layout/head.php';
+?>
 
 <body>
     <?php
     include '../layout/cabecalho.php';
     ?>
-    <h1>Alteração de dados do usuário</h1>
-
-    <form action="../bd/update.php" method="POST">
+    <br><br>
+    <h1 class="h1_alteracao">Alteração de dados do usuário</h1>
+    <form class="form_alteracao" action="../bd/update.php" method="POST">
         <label for="senha_atual">Senha Atual:</label><br>
         <input type="password" name="senha_atual" required placeholder="Digite sua senha atual."><br>
 
@@ -59,6 +55,9 @@ $conn->close();
         <button type="submit">Enviar alterações</button>
     </form>
 
+    <?php
+        include '../layout/footer.php';
+    ?>
 </body>
 
 </html>

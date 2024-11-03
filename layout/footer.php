@@ -1,20 +1,9 @@
-<footer>
-    <div class="container-footer">
-        <p>&copy; <?php echo date("Y"); ?> Study Space. Todos os direitos reservados.</p>
-        <ul class="social-media">
-            <li><a href="#">Facebook</a></li>
-            <li><a href="#">Twitter</a></li>
-            <li><a href="#">Instagram</a></li>
-        </ul>
-    </div>
-</footer>
-
 <style>
     body {
         display: flex;
         flex-direction: column;
-        min-height: 100vh; /* Garante que o body ocupe a altura total da tela */
-        margin: 0; /* Remove margens padrão */
+        min-height: 100vh;
+        margin: 0;
     }
 
     footer {
@@ -23,15 +12,15 @@
         padding: 10px 0;
         text-align: center;
         width: 100%;
-        position: relative; /* Permite que o footer se posicione em relação ao body */
-        margin-top: auto; /* Move o footer para a parte inferior */
+        position: relative;
+        margin-top: auto;
     }
 
     .container-footer {
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: center; /* Centraliza o conteúdo verticalmente */
+        justify-content: center;
     }
 
     .social-media {
@@ -63,3 +52,14 @@
         }
     }
 </style>
+<footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous">
+</script>
+<div class="container-footer">
+        <p>&copy; <?php echo date("Y"); ?> Study Space. Todos os direitos reservados.</p>
+        <ul class="social-media">
+
+    </div>
+</footer>

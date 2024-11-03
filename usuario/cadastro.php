@@ -1,127 +1,141 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4; /* Cor de fundo suave */
+        * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
         }
 
-        .container {
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f8f9fa; /* Fundo suave */
             display: flex;
-            justify-content: center;
             align-items: center;
-            flex-direction: column;
-            height: 100vh; /* Ocupa a altura total da janela */
-            background-color: #666; /* Cor de fundo do contêiner */
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 400px;
+            width: 100%;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+            text-align: center;
         }
 
         h1 {
-            color: white; /* Cor do texto do título */
-            margin-bottom: 20px; /* Espaço abaixo do título */
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 24px;
         }
 
         .formulario {
-            width: 300px; /* Largura do formulário */
-            background-color: whitesmoke; /* Cor de fundo do formulário */
-            border-radius: 10px; /* Bordas arredondadas */
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra leve */
-            padding: 20px; /* Espaçamento interno */
             display: flex;
-            flex-direction: column; /* Organiza os elementos em coluna */
+            flex-direction: column;
+            gap: 15px;
         }
 
         label {
-            font-weight: bold; /* Negrito para os rótulos */
-            margin: 10px 0 5px; /* Margens para os rótulos */
+            font-weight: bold;
+            color: #555;
+            margin-bottom: 5px;
+            text-align: left;
         }
 
         input[type="text"],
         input[type="password"] {
-            width: 100%; /* Ocupa toda a largura do formulário */
-            padding: 10px; /* Espaçamento interno */
-            margin-bottom: 15px; /* Espaço abaixo dos campos */
-            border: 1px solid #ccc; /* Borda leve */
-            border-radius: 5px; /* Bordas arredondadas */
-            box-sizing: border-box; /* Inclui padding e border na largura total */
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            transition: border-color 0.3s;
+        }
+
+        input[type="text"]:focus,
+        input[type="password"]:focus {
+            border-color: #66afe9;
+            outline: none;
         }
 
         button {
-            background-color: blue; /* Cor de fundo do botão */
-            color: white; /* Cor do texto do botão */
-            padding: 10px; /* Espaçamento interno */
-            border: none; /* Sem borda */
-            border-radius: 5px; /* Bordas arredondadas */
-            cursor: pointer; /* Mão ao passar o mouse */
-            width: 100%; /* Ocupa toda a largura */
-            margin-top: 10px; /* Espaçamento acima do botão */
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
         }
 
-        button:hover {
-            background-color: green; /* Cor de fundo ao passar o mouse */
+        .submit-button {
+            background-color: #28a745;
+            color: white;
+        }
+
+        .submit-button:hover {
+            background-color: #218838;
         }
 
         .back-button {
-            background-color: greenyellow; /* Fundo transparente */
-            color: white; /* Cor do texto */
-            border-color: blue;
-            border-radius: 20px;
+            background-color: #007bff;
+            color: white;
+            margin-top: 10px;
         }
 
         .back-button:hover {
-            color: white; /* Cor ao passar o mouse */
+            background-color: #0056b3;
         }
 
         a {
-            text-decoration: none; /* Remove sublinhado */
-            color: #007BFF; /* Cor do link */
-            text-align: center; /* Centraliza o link */
-            margin-top: 15px; /* Espaçamento acima do link */
+            display: block;
+            color: #007bff;
+            text-decoration: none;
+            margin-top: 15px;
         }
 
         a:hover {
-            text-decoration: underline; /* Sublinha ao passar o mouse */
+            text-decoration: underline;
         }
     </style>
 </head>
-
-<body>
+<body><br><br>
     <div class="container">
         <h1>Área de Cadastro</h1>
-        <form action="../bd/enviar_cadastro.php" method="POST" class="formulario">
+        <form action="../bd/enviar_cadastro.php" method="POST" class="formulario"  enctype="multipart/form-data">
             <label for="matricula">Matrícula:</label>
-            <input type="text" id="matricula" name="matricula" required placeholder="Digite sua matrícula.">
+            <input type="text" id="matricula" name="matricula" required placeholder="Digite sua matrícula">
 
             <label for="nome_completo">Nome completo:</label>
-            <input type="text" id="nome_completo" name="nome_completo" required placeholder="Digite seu nome completo.">
-
+            <input type="text" id="nome_completo" name="nome_completo" required placeholder="Digite seu nome completo">
+            
+            <label for="imagem">Foto de Perfil:</label>
+            <input type="file" name="imagem" id="imagem" accept="../uploads*" required>
+            
             <label for="cpf">CPF:</label>
-            <input type="text" id="CPF" name="CPF" placeholder="Digite seu CPF.">
+            <input type="text" id="cpf" name="cpf" required placeholder="Digite seu CPF">
 
             <label for="endereco">Endereço:</label>
-            <input type="text" id="endereco" name="endereco" placeholder="Digite seu endereço.">
+            <input type="text" id="endereco" name="endereco" required placeholder="Digite seu endereço">
 
             <label for="bairro">Bairro:</label>
-            <input type="text" id="bairro" name="bairro" placeholder="Digite seu bairro.">
+            <input type="text" id="bairro" name="bairro" required placeholder="Digite seu bairro">
 
             <label for="numero">Número:</label>
-            <input type="text" id="numero" name="numero"  placeholder="Digite o número.">
+            <input type="text" id="numero" name="numero" required placeholder="Digite o número">
 
             <label for="senha">Senha:</label>
-            <input type="password" id="senha" name="senha" placeholder="Digite sua senha.">
+            <input type="password" id="senha" name="senha" required placeholder="Digite sua senha">
 
-            <button type="submit">Cadastrar</button>
+            <button type="submit" class="submit-button">Cadastrar</button>
+            <button type="button" class="back-button" onclick="window.location.href='../index.php';">Voltar ao Login</button>
         </form>
-        <button class="back-button" onclick="window.location.href='../index.php';">Voltar ao Login</button>
-
     </div>
 </body>
-
 </html>
