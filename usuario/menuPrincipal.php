@@ -1,13 +1,5 @@
 <?php
-//inicia a sessão
-session_start();
-
-//verifica se o usuário está logado
-if (!isset($_SESSION['login'])) {
-    header("Location: login.php");
-    exit;
-}
-
+include '../bd/session.php';
 include '../bd/conexao.php';
 
 $matricula = $_SESSION['login'];
@@ -24,7 +16,6 @@ if ($result->num_rows > 0) {
     echo "Erro: Dados do usuário não encontrados.";
 }
 
-$conn->close();
 ?>
 
 <!DOCTYPE html>
@@ -111,9 +102,11 @@ include '../layout/head.php';
         <a href="quiz.php">Quiz</a><br><br>
     </div>
 
-
-    <?php include '../layout/footer.php'; ?>
-
+    <?php
+    include '../layout/footer.php'; 
+    include '../layout/script.php';
+    ?>
+    
 </body>
 
 </html>

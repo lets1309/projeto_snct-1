@@ -1,17 +1,6 @@
 <?php
-// Conexão com o banco de dados
-$servername = "localhost"; // ou seu endereço de servidor
-$username = "root"; // seu usuário do MySQL
-$password = ""; // sua senha do MySQL
-$database = "projeto_snct"; // substitua pelo nome do seu banco de dados
-
-// Criar conexão
-$conn = mysqli_connect($servername, $username, $password, $database);
-
-// Verificar conexão
-if (!$conn) {
-    die("Falha na conexão: " . mysqli_connect_error());
-}
+include '../bd/conexao.php';
+include '../bd/session.php';
 ?>
 
 <!DOCTYPE html>
@@ -58,17 +47,17 @@ if (!$conn) {
         echo "<p>Você não tem reservas ativas.</p>";
     }
 
-    // Processa o cancelamento da reserva
-    if (isset($_POST['cancelar'])) {
-        $id_reserva = $_POST['id_reserva'];
-        $query_cancelar = "UPDATE reserva SET status = 'Cancelado' WHERE ID_reserva = '$id_reserva'";
-        
-        if (mysqli_query($conn, $query_cancelar)) {
-            echo "<p>Reserva ID $id_reserva foi cancelada com sucesso.</p>";
-        } else {
-            echo "<p>Erro ao cancelar a reserva: " . mysqli_error($conn) . "</p>";
+        // Processa o cancelamento da reserva
+        if (isset($_POST['cancelar'])) {
+            $id_reserva = $_POST['id_reserva'];
+            $query_cancelar = "UPDATE reserva SET status = 'Cancelado' WHERE ID_reserva = '$id_reserva'";
+            
+            if (mysqli_query($conn, $query_cancelar)) {
+                echo "<p>Reserva ID $id_reserva foi cancelada com sucesso.</p>";
+            } else {
+                echo "<p>Erro ao cancelar a reserva: " . mysqli_error($conn) . "</p>";
+            }
         }
-    }
 
     // Fecha a conexão com o banco de dados
     mysqli_close($conn);

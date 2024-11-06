@@ -1,8 +1,11 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <?php
-    include '../layout/head.php';
-    ?>
+include '../layout/head.php';
+include '../bd/session.php';
+
+?>
+
 <body class="body_quiz">
     <?php
     include '../layout/cabecalho.php';

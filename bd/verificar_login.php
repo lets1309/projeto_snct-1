@@ -1,26 +1,33 @@
-    <?php
-        session_start();
-        include 'conexao.php';
+<?php
+session_start();
+include 'conexao.php';
 
-        //pega os dados do form de login
-        $matricula = $_POST['matricula'];
-        $senha = $_POST['senha'];
+// Pega os dados do formulário de login
+$matricula = $_POST['matricula'];
+$senha = $_POST['senha'];
 
-        //faz uma consulta simples para ver se o login(matricula) e a senha estão cadastrados no banco de dados
-        $sql = "SELECT * FROM usuarios WHERE matricula = '$matricula' AND senha = '$senha'";
-        $result = $conn->query($sql);
-        
-        //se a consulta retornar algum resultado, o login é válido e o sistema redireciona para a página principal
-        if ($result->num_rows > 0) {
-            $_SESSION['login'] = $matricula;
-            header("Location: ../usuario/menuPrincipal.php");
-            exit;
-        } else {
-            //mensagem de erro utilizando js(eu achei que ia ser difícil de fazer)
-            echo "<script>alert('Login ou senha incorretos! Verifique os dados ou cadastre-se.'); window.location.href='../index.php';</script>";
-            //***erro location***
-        }
+// Faz uma consulta para verificar se o login (matricula) e a senha estão cadastrados
+$sql = "SELECT nome_completo FROM usuarios WHERE matricula = ? AND senha = ?";
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("ss", $matricula, $senha); // Protege contra injeção de SQL
+$stmt->execute();
+$result = $stmt->get_result();
 
-        $conn->close();
-    //não sei porquê, mas no trechinho abaixo consta como se tivesse algo de errado...
-    ?>
+// Se a consulta retornar algum resultado, o login é válido
+if ($result->num_rows > 0) {
+    $row = $result->fetch_assoc();
+    $_SESSION['login'] = $matricula;          // Armazena a matrícula
+    $_SESSION['matricula'] = $matricula;      // Armazena explicitamente a matrícula
+    $_SESSION['nome_completo'] = $row['nome_completo']; // Armazena o nome completo do usuário
+    
+    // Redireciona para o menu principal
+    header("Location: ../usuario/menuPrincipal.php");
+    exit;
+} else {
+    // Exibe mensagem de erro e redireciona de volta para a página de login
+    echo "<script>alert('Login ou senha incorretos! Verifique os dados ou cadastre-se.'); window.location.href='../index.php';</script>";
+}
+
+// Fecha a conexão com o banco de dados
+$conn->close();
+?>

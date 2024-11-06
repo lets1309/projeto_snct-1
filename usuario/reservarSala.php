@@ -3,8 +3,10 @@
 <?php
 include '../layout/head.php';
 include '../layout/cabecalho.php';
-
+include '../bd/session.php';
+$matricula = $_SESSION['login'];
 ?>
+
 <body>
     <form class="formulario" action="../bd/processar_reserva.php" method="POST">
         <h1>Solicitação da Sala de Estudos</h1>
@@ -16,8 +18,7 @@ include '../layout/cabecalho.php';
             <option value="2">Sala 02</option>
         </select>
 
-        <label for="matricula">Matrícula do responsável:</label>
-        <input type="text" name="matricula" required>
+        <input type="hidden" name="matricula" value="<?php echo $matricula; ?>">
 
         <label for="participantes">Número total de pessoas:</label>
         <select id="numeroPessoas" name="numeroPessoas" onchange="gerarCampos()" required>
@@ -34,11 +35,11 @@ include '../layout/cabecalho.php';
         <input type="date" name="data_reserva" required>
 
         <label for="hora_inicio">Hora de Início:</label>
-        <input type="time" name="horario_inicio" required>
+        <input type="time" name="data_inicio" required>
 
-
-        <button type="submit">Reservar</button>
+        <button type="submit">Solicitar Reserva</button>
     </form>
+
     <script>
         function gerarCampos() {
             const numeroPessoas = document.getElementById('numeroPessoas').value;
@@ -62,6 +63,7 @@ include '../layout/cabecalho.php';
             }
         }
     </script>
+
     <?php
     include '../layout/footer.php';
     ?>

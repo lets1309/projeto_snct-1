@@ -1,10 +1,5 @@
 <?php
-session_start();
-if (!isset($_SESSION['login'])) {
-    header("Location: login.php");
-    exit;
-}
-
+include '../bd/session.php';
 include '../bd/conexao.php';
 
 $login = $_SESSION['login'];

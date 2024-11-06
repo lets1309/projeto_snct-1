@@ -1,34 +1,59 @@
 <?php
-    // Conexão com o banco de dados
-    include 'config.php';
-    
-    // Obter os dados do formulário
-    $numero_sala = $_POST['selecionar_sala'];
-    $matricula = $_POST['matricula'];
-    $participantes = $_POST['numeroPessoas'];
-    
-    // Obter a data e o horário do formulário
-    $data_reserva = $_POST['data_reserva']; // Data da reserva enviada pelo formulário
-    $horario_inicio = $_POST['horario_inicio']; // Horário de início enviado pelo formulário
+include 'config.php';
+include 'session.php';
 
-    // Corrigindo a consulta SQL com os novos campos
-    $sql = "INSERT INTO reserva (numero_sala, matricula, data_reserva, horario_inicio, numero_pessoas) 
-            VALUES ('$numero_sala', '$matricula', '$data_reserva', '$horario_inicio', '$participantes')";
+$matricula = $_SESSION['login'];
+$numero_sala = $_POST['selecionar_sala'];
+$participantes = $_POST['numeroPessoas'];
+$data_reserva = $_POST['data_reserva'];
+$horario_inicio = $_POST['data_inicio'];
 
-    if (mysqli_query($conn, $sql)) {
-        // Exibe um alert e redireciona após clicar em OK
+// Obter as matrículas dos integrantes
+$matricula_integrante_2 = isset($_POST['matricula_integrante_2']) ? $_POST['matricula_integrante_2'] : null;
+$matricula_integrante_3 = isset($_POST['matricula_integrante_3']) ? $_POST['matricula_integrante_3'] : null;
+$matricula_integrante_4 = isset($_POST['matricula_integrante_4']) ? $_POST['matricula_integrante_4'] : null;
+$matricula_integrante_5 = isset($_POST['matricula_integrante_5']) ? $_POST['matricula_integrante_5'] : null;
+$matricula_integrante_6 = isset($_POST['matricula_integrante_6']) ? $_POST['matricula_integrante_6'] : null;
+
+// Verificar se a reserva já existe
+$sql_check = "SELECT COUNT(*) FROM reserva 
+              WHERE matricula = ? AND numero_sala = ? AND data_reserva = ? AND horario_inicio = ?";
+$stmt_check = mysqli_prepare($conn, $sql_check);
+mysqli_stmt_bind_param($stmt_check, "ssss", $matricula, $numero_sala, $data_reserva, $horario_inicio);
+mysqli_stmt_execute($stmt_check);
+mysqli_stmt_bind_result($stmt_check, $count);
+mysqli_stmt_fetch($stmt_check);
+mysqli_stmt_close($stmt_check);
+
+if ($count > 0) {
+    echo "<script>
+            alert('Você já tem uma reserva semelhante registrada.');
+            window.location.href = '../usuario/reservarSala.php';
+          </script>";
+} else {
+    // Inserir nova reserva com as matrículas dos integrantes
+    $sql_insert = "INSERT INTO reserva (numero_sala, matricula, data_reserva, horario_inicio, numero_pessoas, 
+                   matricula_integrante_2, matricula_integrante_3, matricula_integrante_4, 
+                   matricula_integrante_5, matricula_integrante_6) 
+                   VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    $stmt_insert = mysqli_prepare($conn, $sql_insert);
+    mysqli_stmt_bind_param($stmt_insert, "ssssisssss", $numero_sala, $matricula, $data_reserva, $horario_inicio, $participantes, 
+                                               $matricula_integrante_2, $matricula_integrante_3, $matricula_integrante_4, 
+                                               $matricula_integrante_5, $matricula_integrante_6);
+
+    if (mysqli_stmt_execute($stmt_insert)) {
         echo "<script>
-                alert('Solicitação de reserva efetuada com suceso!!!');
-                window.location.href = '../usuario/reservarSala.php'; // Substitua pelo URL da página que você quer recarregar
+                alert('Solicitação de reserva efetuada com sucesso!');
+                window.location.href = '../usuario/reservarSala.php';
               </script>";
     } else {
-        // Exibe um alert com o erro
         echo "<script>
                 alert('Erro ao efetuar reserva: " . mysqli_error($conn) . "');
-                window.location.href = '../usuario/reservarSala.php'; // Substitua pelo URL da página para recarregar em caso de erro
+                window.location.href = '../usuario/reservarSala.php';
               </script>";
     }
+    mysqli_stmt_close($stmt_insert);
+}
 
-    // Fechar a conexão
-    mysqli_close($conn);
+mysqli_close($conn);
 ?>
