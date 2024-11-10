@@ -21,10 +21,21 @@
                 <li class="nav-item me-3">
                     <a class="nav-link" href="../adm/configuracao_adm.php">Configurações</a>
                 </li>
-                <li class="nav-item me-3">
-                    <a class="nav-link" href="../usuario/logout.php">Sair</a>
-                </li>
             </ul>
+            <div class="d-flex align-items-center">
+                <span class="navbar-text me-3 text-white">
+                    <?php // Bloquinho de código para exibir o nome do adm
+                    if (isset($_SESSION['nome_adm'])) {
+                        echo 'Bem vindo(a) ';
+                        echo htmlspecialchars($_SESSION['nome_adm']); // Exibe o nome do usuário(isso deu um belo trabalho, igual o usuário...)
+                        echo '!';
+                    } else {
+                        echo "Usuário Desconhecido"; // Mensagem padrão se não estiver logado
+                    }
+                    ?>
+                </span>
+                <a href="../adm/logout_adm.php" class="btn btn-outline-light">Sair</a>
+            </div>
         </div>
     </div>
 

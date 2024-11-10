@@ -20,6 +20,8 @@ if ($result->num_rows > 0) {
 
 <!DOCTYPE html>
 <html lang="pt-BR">
+<link rel="stylesheet" href="../layout/style_global.css">
+
 <?php
 include '../layout/head.php';
 ?>
@@ -102,11 +104,6 @@ include '../layout/head.php';
         <a href="quiz.php">Quiz</a><br><br>
     </div>
 
-    <?php
-    include '../layout/footer.php'; 
-    include '../layout/script.php';
-    ?>
-    
+    <?php include '../layout/footer.php'; ?>
 </body>
-
 </html>

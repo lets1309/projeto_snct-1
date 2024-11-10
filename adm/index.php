@@ -85,7 +85,7 @@
 </head>
 <body>
     <div class="container">
-        <img src="../assets/if.png" alt="">
+        <img src="../assets/if_logo.png" alt="">
         <h1 style="color: Black">Study Space - ADM</h1>
         <div class="divLogin">
             <form action="../bd/verificar_login_adm.php" method="POST" class="formulario">
@@ -96,7 +96,6 @@
                 <input type="password" name="senha_adm" required placeholder="Digite sua senha."><br><br>
 
                 <button type="submit">Login</button><br>
-                <a href="cadastro_adm.php">Não tem uma conta? Cadastre-se!</a>
             </form>
         </div>
     </div>

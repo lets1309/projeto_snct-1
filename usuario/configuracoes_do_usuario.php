@@ -3,8 +3,13 @@ include '../bd/session.php';
 include '../bd/conexao.php';
 
 $login = $_SESSION['login'];
-$sql = "SELECT * FROM usuarios WHERE matricula = '$login'";
-$result = $conn->query($sql);
+
+// Consulta segura com `bind_param` para evitar injeção de SQL
+$sql = "SELECT * FROM usuarios WHERE matricula = ?";
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("s", $login);
+$stmt->execute();
+$result = $stmt->get_result();
 
 if ($result->num_rows > 0) {
     $row = $result->fetch_assoc();
@@ -21,7 +26,6 @@ if ($result->num_rows > 0) {
 
 $conn->close();
 ?>
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <link rel="stylesheet" href="../layout/style_global.css">
@@ -31,14 +35,26 @@ $conn->close();
     <?php include '../layout/cabecalho.php'; ?>
     <div class="conteiner-config">
         <h2>Configurações do Usuário</h2>
-        
+
+        <!-- Mensagem de confirmação -->
+        <?php if (isset($_GET['foto_atualizada']) && $_GET['foto_atualizada'] == 1): ?>
+            <p style="color: green;">Foto de perfil atualizada com sucesso!</p>
+        <?php endif; ?>
+
         <!-- Exibindo a imagem de perfil -->
-        <?php if (!empty($imagem)) : ?>
-            <img src="<?php echo $imagem; ?>" alt="Foto de Perfil" style="width: 150px; height: 150px; border-radius: 50%; margin-bottom: 20px;">
+        <?php if (!empty($foto_perfil)) : ?>
+            <img id="foto-perfil" src="../<?php echo $foto_perfil; ?>" alt="Foto de Perfil" style="width: 150px; height: 150px; border-radius: 50%; margin-bottom: 20px;">
         <?php else : ?>
             <p>Imagem de perfil não disponível.</p>
         <?php endif; ?>
-        
+
+        <!-- Formulário para atualizar a foto de perfil -->
+        <form action="atualizar_foto_perfil.php" method="POST" enctype="multipart/form-data">
+            <label for="foto_perfil">Alterar Foto de Perfil:</label>
+            <input type="file" name="foto_perfil" accept="image/*" required>
+            <button type="submit">Alterar foto de perfil</button>
+        </form>
+
         <p>Matrícula: <?php echo $matricula; ?></p>
         <p>Nome Completo: <?php echo $nome_completo; ?></p>
         <p>CPF: <?php echo $CPF; ?></p>

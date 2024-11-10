@@ -1,56 +1,69 @@
 <?php
-    session_start();
-    if (!isset($_POST['matricula'])) {
-        // Se o arquivo foi acessado diretamente, redireciona para a página de alteração.
-        header("Location: ../alteracao_dados_usuario.php");
-        exit; // Essa linha deve estar antes do include
-    }
+session_start();
 
-    include 'conexao.php';
+// Verifica se o formulário foi enviado com a matrícula
+if (!isset($_POST['matricula'])) {
+    header("Location: ../usuario/configuracoes_do_usuario.php");
+    exit;
+}
 
-    // Receber dados do formulário
-    $matricula = $_POST['matricula'];
-    $senha_atual = $_POST['senha_atual'];
-    $novo_endereco = $_POST['endereco'];
-    $novo_bairro = $_POST['bairro'];
-    $novo_numero = $_POST['numero'];
-    $nova_senha = $_POST['senha'];
+include 'conexao.php';
 
-    // Verificar se a senha atual está correta
-    $sql = "SELECT senha FROM usuarios WHERE matricula = '$matricula'";
-    $result = $conn->query($sql);
+// Receber dados do formulário
+$matricula = $_POST['matricula'];
+$senha_atual = $_POST['senha_atual'];
+$novo_endereco = $_POST['endereco'];
+$novo_bairro = $_POST['bairro'];
+$novo_numero = $_POST['numero'];
+$nova_senha = $_POST['senha'];
 
-    if ($result->num_rows > 0) {
-        $row = $result->fetch_assoc();
-        
-        if ($row['senha'] === $senha_atual) {
-            // Atualizar dados do usuário
-            $update_sql = "UPDATE usuarios SET endereco = '$novo_endereco', bairro = '$novo_bairro', numero = '$novo_numero'";
+// Consulta segura para verificar a senha atual
+$sql = "SELECT senha FROM usuarios WHERE matricula = ?";
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("s", $matricula);
+$stmt->execute();
+$result = $stmt->get_result();
 
-            // Atualizar a senha apenas se o usuário digitou uma nova
-            if (!empty($nova_senha)) {
-                $update_sql .= ", senha = '$nova_senha'";
-            }
+if ($result->num_rows > 0) {
+    $row = $result->fetch_assoc();
 
-            $update_sql .= " WHERE matricula = '$matricula'";
+    // Verifica a senha atual usando password_verify
+    if (password_verify($senha_atual, $row['senha'])) {
+        // Inicia a parte da query de atualização
+        $update_sql = "UPDATE usuarios SET endereco = ?, bairro = ?, numero = ?";
 
-            if ($conn->query($update_sql) === TRUE) {
-                echo "<script>
-                        alert('Dados atualizados com sucesso.');
-                        window.location.href = '../usuario/configuracoes_do_usuario.php';
-                    </script>";
-            } else {
-                echo "Erro ao atualizar os dados: " . $conn->error;
-            }
+        // Atualiza a senha apenas se o usuário digitou uma nova senha
+        if (!empty($nova_senha)) {
+            // Se nova senha for fornecida, criptografa e adiciona à consulta
+            $nova_senha_criptografada = password_hash($nova_senha, PASSWORD_DEFAULT);
+            $update_sql .= ", senha = ?";
+            // Prepara a consulta com os parâmetros da nova senha
+            $stmt_update = $conn->prepare($update_sql . " WHERE matricula = ?");
+            $stmt_update->bind_param("ssss", $novo_endereco, $novo_bairro, $novo_numero, $nova_senha_criptografada, $matricula);
         } else {
+            // Caso contrário, prepara sem a senha
+            $stmt_update = $conn->prepare($update_sql . " WHERE matricula = ?");
+            $stmt_update->bind_param("sss", $novo_endereco, $novo_bairro, $novo_numero, $matricula);
+        }
+
+        // Executa a consulta de atualização
+        if ($stmt_update->execute()) {
             echo "<script>
-                    alert('Senha atual incorreta.');
-                    window.history.back();
-                </script>";
+                    alert('Dados atualizados com sucesso.');
+                    window.location.href = '../usuario/configuracoes_do_usuario.php';
+                  </script>";
+        } else {
+            echo "Erro ao atualizar os dados: " . $conn->error;
         }
     } else {
-        echo "Usuário não encontrado.";
+        echo "<script>
+                alert('Senha atual incorreta.');
+                window.history.back();
+              </script>";
     }
+} else {
+    echo "Usuário não encontrado.";
+}
 
-    $conn->close();
+$conn->close();
 ?>

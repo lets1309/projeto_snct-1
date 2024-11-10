@@ -28,11 +28,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="pt-BR">
-<?php
+<link rel="stylesheet" href="../layout/style_global.css">
+<?php include '../layout/head.php';
 include '../layout/head.php';
+include '../adm/session_adm.php';
+
 ?>
 
 <body>

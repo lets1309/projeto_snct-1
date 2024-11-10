@@ -59,5 +59,5 @@
         <ul class="social-media">
 
     </div>
-    
+    <?php include'../layout/script.php';?>
 </footer>

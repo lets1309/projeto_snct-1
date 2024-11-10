@@ -1,7 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
-<?php
-include '../layout/head.php';
+<html lang="pt-BR">
+<link rel="stylesheet" href="../layout/style_global.css">
+<?php include '../layout/head.php';
+
+include '../adm/session_adm.php';
 ?>
 <body>
 <?php

@@ -1,6 +1,6 @@
 <?php
 include 'conexao.php';
-include_once("conexao001.php");
+
 
 // Receber os dados do formulário
 $matricula = $_POST['matricula'];
@@ -13,7 +13,9 @@ $CPF = $_POST['cpf'];
 $endereco = $_POST['endereco'];
 $bairro = $_POST['bairro'];
 $numero = $_POST['numero'];
-$senha = $_POST['senha'];
+
+// Criptografa a senha antes de armazená-la no banco
+$senha = password_hash($_POST['senha'], PASSWORD_DEFAULT);
 
 // Caminho para a pasta de upload
 $pastaDestino = "../uploads/";

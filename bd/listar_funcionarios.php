@@ -1,7 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
+<link rel="stylesheet" href="../layout/style_global.css">
 <?php
 include '../layout/head.php';
+include '../adm/session_adm.php'; // Inclua o arquivo de sessão
+include '../bd/config.php';   // Inclua a configuração do banco de dados
+
+if (isset($nome_adm)) {
+    // Prepara a consulta para obter informações do administrador logado
+    $stmt = $conn->prepare("SELECT * FROM adm WHERE nome_adm = ?");
+    $stmt->bind_param("s", $nome_adm);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    if ($result->num_rows > 0) {
+        $row = $result->fetch_assoc();
+        $nome_adm = $row['nome_adm'];
+    } else {
+        echo "Erro: Dados do usuário não encontrados.";
+        exit;
+    }
+} else {
+    echo "Erro: Usuário não autenticado.";
+    exit;
+}
 ?>
 
 <body>
@@ -9,7 +31,7 @@ include '../layout/head.php';
     include '../layout/cabecalho_adm.php';
     ?>
     <?php
-    include 'conexao.php';
+
 
 
     // Função para listar todos os funcionários (tabela adm)
@@ -38,9 +60,7 @@ include '../layout/head.php';
 
     $conn->close();
     ?>
-    <?php
-    include '../layout/footer.php';
-    ?>
+    <?php include '../layout/footer.php'; ?>
 </body>
 
 </html>
