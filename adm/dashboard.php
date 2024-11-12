@@ -1,7 +1,7 @@
 <?php
-include 'session_adm.php'; // Inclua o arquivo de sessão
-include '../bd/config.php';   // Inclua a configuração do banco de dados
-include '../layout/head.php'; // Inclua o cabeçalho da página
+include 'session_adm.php'; 
+include '../bd/config.php';   
+include '../layout/head_adm.php'; 
 
 // Verifica se o nome do administrador está disponível na sessão
 if (isset($nome_adm)) {
@@ -26,8 +26,10 @@ if (isset($nome_adm)) {
 
 <!DOCTYPE html>
 <html lang="pt-BR">
-<link rel="stylesheet" href="../layout/style_global.css">
-<?php include '../layout/head.php'; ?>
+<link rel="stylesheet" href="../layout/style_adm.css">
+<?php
+include '../layout/head_adm.php';
+?>
 
 <body>
     <?php include '../layout/cabecalho_adm.php'; ?>
@@ -63,7 +65,6 @@ if (isset($nome_adm)) {
             ?>
         </table>
     </div>
-
     <?php include '../layout/footer.php'; ?>
 </body>
 </html>

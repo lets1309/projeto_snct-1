@@ -10,13 +10,13 @@
                     <a class="nav-link" href="../adm/dashboard.php">Dashboard</a>
                 </li>
                 <li class="nav-item me-3">
-                    <a class="nav-link" href="../bd/listar_usuarios.php">Listar Usuarios</a>
+                    <a class="nav-link" href="../adm/listar_usuarios.php">Listar Usuarios</a>
                 </li>
                 <li class="nav-item me-3">
-                    <a class="nav-link" href="../bd/listar_funcionarios.php">Listar Funcionarios</a>
+                    <a class="nav-link" href="../adm/listar_funcionarios.php">Listar Funcionarios</a>
                 </li>
                 <li class="nav-item me-3">
-                    <a class="nav-link" href="../bd/reservas_solicitadas.php">Reservas Solicitadas</a>
+                    <a class="nav-link" href="../adm/reservas_solicitadas.php">Reservas Solicitadas</a>
                 </li>
                 <li class="nav-item me-3">
                     <a class="nav-link" href="../adm/configuracao_adm.php">Configurações</a>

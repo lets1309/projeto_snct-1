@@ -3,7 +3,7 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start(); // Inicie a sessão se não estiver já em andamento
 }
 ?>
-<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #65b307;">
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #2574c8;">
     <div class="container-fluid">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -16,6 +16,9 @@ if (session_status() === PHP_SESSION_NONE) {
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="../usuario/quiz.php">Quiz</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../bioma_360/bioma.php">Biomas em 360°</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="../usuario/reservarSala.php">Solicitar Reserva</a>
@@ -68,7 +71,7 @@ if (session_status() === PHP_SESSION_NONE) {
         }
 
         .nav-ul li a:hover {
-            background-color: #228B22;
+            background-color: #000080;
             color: white;
         }
 

@@ -7,7 +7,7 @@
     }
 
     footer {
-        background-color: #0F1B42;
+        background-color: #333;
         color: #fff;
         padding: 10px 0;
         text-align: center;
@@ -59,5 +59,5 @@
         <ul class="social-media">
 
     </div>
-    <?php include'../layout/script.php';?>
+    <?php include'../layout/script_adm.php';?>
 </footer>

@@ -4,7 +4,12 @@
         'q2' => 'Pantanal',
         'q3' => 'Caatinga',
         'q4' => 'Urbanização',
-        'q5' => 'Gramíneas'
+        'q5' => 'Gramíneas',
+        'q6' => 'Desmatamento para atividades agrícolas e pecuárias',
+        'q7' => 'Elevado desmatamento para urbanização e agricultura',
+        'q8' => 'Cactos e arbusto espinhosos',
+        'q9' => 'Expansão da agricultura e pecuária',
+        'q10'=> 'Frequentes alagamentos sazonais que promovem grande biodiversidade'
     ];
 
     $pontuacao = 0;
@@ -17,7 +22,7 @@
 
     include '../layout/head.php';
     include '../layout/cabecalho.php';
-
+    
     echo "<h1>Resultado do Quiz</h1>";
     echo "<p>Você acertou <strong>$pontuacao</strong> de <strong>" . count($respostasCorretas) . "</strong> perguntas.</p>";
 

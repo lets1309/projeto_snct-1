@@ -9,13 +9,16 @@ $senha = $_POST['senha'];
 // Faz uma consulta para obter o nome e a senha criptografada do usuário com a matrícula fornecida
 $sql = "SELECT nome_completo, senha FROM usuarios WHERE matricula = ?";
 $stmt = $conn->prepare($sql);
-$stmt->bind_param("s", $matricula); // Protege contra injeção de SQL
+$stmt->bind_param("s", $matricula); 
 $stmt->execute();
 $result = $stmt->get_result();
 
 if ($result->num_rows > 0) {
     $row = $result->fetch_assoc();
     $senha_criptografada = $row['senha'];
+
+    echo 'Senha armazenada: ' . $row['senha'] . '<br>';
+    echo 'Senha fornecida: ' . $senha . '<br>';
 
     // Compara a senha fornecida com o hash no banco
     if (password_verify($senha, $senha_criptografada)) {

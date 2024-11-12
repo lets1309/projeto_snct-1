@@ -68,27 +68,62 @@ include '../bd/session.php';
                 <input type="radio" name="q1" value="Amazônia"> Amazônia<br>
                 <input type="radio" name="q1" value="Cerrado"> Cerrado<br>
                 <input type="radio" name="q1" value="Caatinga"> Caatinga<br>
+                <br>
 
                 <p>2. Qual bioma é conhecido por ser uma área alagada?</p>
                 <input type="radio" name="q2" value="Pantanal"> Pantanal<br>
                 <input type="radio" name="q2" value="Mata Atlântica"> Mata Atlântica<br>
                 <input type="radio" name="q2" value="Campos Sulinos"> Campos Sulinos<br>
+                <br>
 
                 <p>3. Qual bioma é caracterizado por vegetação xerófila?</p>
                 <input type="radio" name="q3" value="Caatinga"> Caatinga<br>
                 <input type="radio" name="q3" value="Cerrado"> Cerrado<br>
                 <input type="radio" name="q3" value="Amazônia"> Amazônia<br>
+                <br>
 
                 <p>4. A Mata Atlântica é ameaçada por:</p>
                 <input type="radio" name="q4" value="Urbanização"> Urbanização<br>
                 <input type="radio" name="q4" value="Reflorestamento"> Reflorestamento<br>
                 <input type="radio" name="q4" value="Desmatamento"> Desmatamento<br>
+                <br>
 
                 <p>5. O que caracteriza os Campos Sulinos?</p>
                 <input type="radio" name="q5" value="Vegetação de floresta"> Vegetação de floresta<br>
                 <input type="radio" name="q5" value="Gramíneas"> Gramíneas<br>
                 <input type="radio" name="q5" value="Cactos"> Cactos<br>
+                <br>
 
+                <p>6.  Qual é uma das principais ameaças à Floresta Amazônica?</p>
+                <input type="radio" name="q6" value="Desmatamento para atividades agrícolas  e pecuária"> Desmatamento para atividades agrícolas e pecuária <br>
+                <input type="radio" name="q6" value="Queimadas"> Queimadas <br>
+                <input type="radio" name="q6" value="Agricultura de soja"> Agricultura de soja <br>
+                <br>
+
+                <p>7.A Mata Atlântica é um dos biomas mais ameaçados do Brasil. Qual das opções a seguir é uma das principais causas disso? </p>
+                <input type="radio" name="q7" value="Baixo índice de biodiversidade"> Baixo índice de biodiversidade <br>
+                <input type="radio" name="q7" value="Desmatamento"> Desmatamento <br>
+                <input type="radio" name="q7" value=" Elevado desmatamento para urbanização e agricultura"> Elevado desmatamento para urbanização e agricultura <br>
+                <br>
+
+                <p>8.Qual é um exemplo de planta adaptada ao clima da Caatinga?:</p>
+                <input type="radio" name="q8" value="Cactos e arbusto espinhosos"> Cactos e arbusto espinhosos <br>
+                <input type="radio" name="q8" value="Ipê-amarelo"> Ipê-amarelo <br>
+                <input type="radio" name="q8" value="Pinheiros"> Pinheiros<br>
+                <br>
+
+                <p> 9.  O que ameaça a biodiversidade do Cerrado? </p>
+                <input type="radio" name=  "q9" value="Desmatamento e queimadas"> Desmatamento e queimadas <br>
+                <input type="radio" name=  "q9" value="Expansão da indústria pesqueira">Expansão da indústria pesqueira <br>
+                <input type="radio" name=  "q9" value="Expansão da agricultura e pecuária"> Expansão da agricultura e  pecuária <br>
+                <br>
+
+                <p>10.O Pantanal é um dos maiores biomas úmidos do planeta. Qual é uma característica importante dele? </p>
+                <input type="radio" name="q10" value="Área alagada">Àrea alagada <br>
+                <input type="radio" name="q10" value="Ocorrência apenas em áreas montanhosas"> Ocorrência apenas em áreas montanhosas <br>
+                <input type="radio" name="q10" value=" Frequentes alagamentos sazonais que promovem grande biodiversidade"> Frequentes alagamentos sazonais que promovem grande biodiversidade  <br>
+                <br>
+                
                 <input type="submit" value="Enviar">
             </form>
         </div>

@@ -5,7 +5,7 @@ if (session_status() == PHP_SESSION_NONE) {
 
 // Verifica se o usuário está autenticado
 if (!isset($_SESSION['nome_adm'])) {
-    header("Location: ../adm/index.php"); // Verifique se o caminho está correto
+    header("Location: ../adm/index.php"); 
     exit;
 }
 

@@ -33,43 +33,54 @@ $conn->close();
 
 <body>
     <?php include '../layout/cabecalho.php'; ?>
-    <div class="conteiner-config">
-        <h2>Configurações do Usuário</h2>
+    <h2>Configurações do Usuário</h2>
 
-        <!-- Mensagem de confirmação -->
-        <?php if (isset($_GET['foto_atualizada']) && $_GET['foto_atualizada'] == 1): ?>
-            <p style="color: green;">Foto de perfil atualizada com sucesso!</p>
-        <?php endif; ?>
+    <div class="container-configuracoes">
+        <!-- Primeira div: Foto de Perfil e Formulário para Alteração -->
+        <div class="foto-perfil">
+            <!-- Mensagem de confirmação -->
+            <?php if (isset($_GET['foto_atualizada']) && $_GET['foto_atualizada'] == 1): ?>
+                <p style="color: green;">Foto de perfil atualizada com sucesso!</p>
+            <?php endif; ?>
 
-        <!-- Exibindo a imagem de perfil -->
-        <?php if (!empty($foto_perfil)) : ?>
-            <img id="foto-perfil" src="../<?php echo $foto_perfil; ?>" alt="Foto de Perfil" style="width: 150px; height: 150px; border-radius: 50%; margin-bottom: 20px;">
-        <?php else : ?>
-            <p>Imagem de perfil não disponível.</p>
-        <?php endif; ?>
+            <!-- Exibindo a imagem de perfil -->
+            <?php if (!empty($foto_perfil)): ?>
+                <img id="foto-perfil" src="../<?php echo $foto_perfil; ?>" alt="Foto de Perfil"
+                    style="width: 150px; height: 150px; border-radius: 50%; margin-bottom: 20px;">
+            <?php else: ?>
+                <p>Imagem de perfil não disponível.</p>
+            <?php endif; ?>
 
-        <!-- Formulário para atualizar a foto de perfil -->
-        <form action="atualizar_foto_perfil.php" method="POST" enctype="multipart/form-data">
-            <label for="foto_perfil">Alterar Foto de Perfil:</label>
-            <input type="file" name="foto_perfil" accept="image/*" required>
-            <button type="submit">Alterar foto de perfil</button>
-        </form>
+            <!-- Formulário para atualizar a foto de perfil -->
+            <form action="atualizar_foto_perfil.php" method="POST" enctype="multipart/form-data">
+                <label for="foto_perfil">Alterar Foto de Perfil:</label>
+                <input type="file" name="foto_perfil" accept="image/*" required>
+                <button type="submit">Alterar foto de perfil</button>
+            </form>
+        </div>
 
-        <p>Matrícula: <?php echo $matricula; ?></p>
-        <p>Nome Completo: <?php echo $nome_completo; ?></p>
-        <p>CPF: <?php echo $CPF; ?></p>
-        <p>Endereço: <?php echo $endereco; ?></p>
-        <p>Bairro: <?php echo $bairro; ?></p>
-        <p>Número: <?php echo $numero; ?></p>
+        <!-- Segunda div: Informações do Usuário -->
+        <div class="informacoes-usuario">
+            <p>Matrícula: <?php echo $matricula; ?></p>
+            <p>Nome Completo: <?php echo $nome_completo; ?></p>
+            <p>CPF: <?php echo $CPF; ?></p>
+            <p>Endereço: <?php echo $endereco; ?></p>
+            <p>Bairro: <?php echo $bairro; ?></p>
+            <p>Número: <?php echo $numero; ?></p>
+            <a href="alteracao_dados_usuario.php"
+                style="display: inline-block; padding: 10px 20px; background-color: #007bff; color: white; text-align: center; border-radius: 5px; text-decoration: none;">Alterar
+                dados</a>
+        </div>
+    </div>
 
-        <a href="alteracao_dados_usuario.php"
-            style="display: inline-block; padding: 10px 20px; background-color: #007bff; color: white; text-align: center; border-radius: 5px; text-decoration: none;">Alterar
-            dados</a>
-
+    <!-- Botão Voltar ao Início -->
+    <div class="voltar">
         <a href="menuPrincipal.php"
             style="display: inline-block; padding: 10px 20px; background-color: #007bff; color: white; text-align: center; border-radius: 5px; text-decoration: none;">Voltar
             ao início</a>
     </div>
+
     <?php include '../layout/footer.php'; ?>
 </body>
+
 </html>
